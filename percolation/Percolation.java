@@ -14,8 +14,8 @@ public class Percolation {
         }
         this.n = n;
         grid = new boolean[n + 1][n + 1];
-        WeightedQuickUnionUF UF = new WeightedQuickUnionUF(n * n + 2);
-        WeightedQuickUnionUF UF1 = new WeightedQuickUnionUF(n * n + 1);
+        UF = new WeightedQuickUnionUF(n * n + 2);
+        UF1 = new WeightedQuickUnionUF(n * n + 1);
     }
 
     // opens the site (row, col) if it is not open already
@@ -25,41 +25,48 @@ public class Percolation {
         if (!grid[row][col]) {
             grid[row][col] = true;
             if (row == 1) {
-                UF.connected(0, col);
-                UF1.connected(0, col);
+//                System.out.println(row + "   " + col + "    " + "top");
+                UF.union(0, col);
+                UF1.union(0, col);
             }
             if (row == n) {
-                UF.connected(n * n + 1, (row - 1) * n + col);
+//                System.out.println(row + "   " + col + "    " + "bottom");
+                UF.union(n * n + 1, (row - 1) * n + col);
             }
             // up
             if (row > 1) {
                 if (isOpen(row - 1, col)) {
-                    UF.connected((row - 1) * n + col, (row - 2) * n + col);
-                    UF.connected((row - 1) * n + col, (row - 2) * n + col);
+//                    System.out.println((row - 1) + "   " + col + "    " + "up");
+                    UF.union((row - 1) * n + col, (row - 2) * n + col);
+                    UF1.union((row - 1) * n + col, (row - 2) * n + col);
                 }
             }
             // down
             if (row < n) {
                 if (isOpen(row + 1, col)) {
-                    UF.connected((row - 1) * n + col, (row) * n + col);
-                    UF.connected((row - 1) * n + col, (row) * n + col);
+//                    System.out.println((row + 1) + "   " + col + "    " + "down");
+                    UF.union((row - 1) * n + col, (row) * n + col);
+                    UF1.union((row - 1) * n + col, (row) * n + col);
                 }
             }
             // left
             if (col > 1) {
                 if (isOpen(row, col - 1)) {
-                    UF.connected((row - 1) * n + col, (row - 1) * n + col - 1);
-                    UF.connected((row - 1) * n + col, (row - 1) * n + col - 1);
+//                    System.out.println(row + "   " + (col - 1) + "    " + "left");
+                    UF.union((row - 1) * n + col, (row - 1) * n + col - 1);
+                    UF1.union((row - 1) * n + col, (row - 1) * n + col - 1);
                 }
             }
             // right
             if (col < n) {
                 if (isOpen(row, col + 1)) {
-                    UF.connected((row - 1) * n + col, (row - 1) * n + col + 1);
-                    UF.connected((row - 1) * n + col, (row - 1) * n + col + 1);
+//                    System.out.println(row + "   " + (col + 1) + "    " + "right");
+                    UF.union((row - 1) * n + col, (row - 1) * n + col + 1);
+                    UF1.union((row - 1) * n + col, (row - 1) * n + col + 1);
                 }
             }
             numOpen++;
+//            System.out.println("connected: " + UF.connected(0, n * n + 1));
         }
     }
 
@@ -67,8 +74,7 @@ public class Percolation {
     public boolean isOpen(int row, int col) {
         if (row < 1 || row > n || col < 1 || col > n)
             throw new java.lang.IllegalArgumentException("row & col must between 1 ~ n");
-        if (grid[row][col]) return true;
-        return false;
+        return grid[row][col];
     }
 
     // is the site (row, col) full?
@@ -76,7 +82,7 @@ public class Percolation {
         if (row < 1 || row > n || col < 1 || col > n)
             throw new java.lang.IllegalArgumentException("row & col must between 1 ~ n");
         if (grid[row][col]) {
-            if (UF1.connected(0, (row - 1) * n + col)) return true;
+            return UF1.connected(0, (row - 1) * n + col);
         }
         return false;
     }
@@ -93,7 +99,6 @@ public class Percolation {
 
     // test client (optional)
     public static void main(String[] args) {
-        System.out.println("Good");
     }
 }
 
