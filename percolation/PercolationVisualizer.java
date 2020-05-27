@@ -36,7 +36,7 @@ public class PercolationVisualizer {
         for (int row = 1; row <= n; row++) {
             for (int col = 1; col <= n; col++) {
                 if (perc.isFull(row, col)) {
-                    StdDraw.setPenColor(StdDraw.BOOK_LIGHT_BLUE);
+                    StdDraw.setPenColor(StdDraw.WHITE);
                     opened++;
                 } else if (perc.isOpen(row, col)) {
                     StdDraw.setPenColor(StdDraw.WHITE);
@@ -50,9 +50,10 @@ public class PercolationVisualizer {
         // write status text
         StdDraw.setFont(new Font("SansSerif", Font.PLAIN, 12));
         StdDraw.setPenColor(StdDraw.BLACK);
-        StdDraw.text(0.25 * n, -0.025 * n, opened + " open sites");
-        if (perc.percolates()) StdDraw.text(0.75 * n, -0.025 * n, "percolates");
-        else StdDraw.text(0.75 * n, -0.025 * n, "does not percolate");
+        StdDraw.text(0.5 * n, 1.025 * n, "Destruction Judgment");
+        StdDraw.text(0.25 * n, -0.025 * n, opened + " Fractured Unit");
+        if (perc.percolates()) StdDraw.text(0.75 * n, -0.025 * n, "Specimen Fractured");
+        else StdDraw.text(0.75 * n, -0.025 * n, "Specimen Not Fractured");
 
     }
 
@@ -73,10 +74,10 @@ public class PercolationVisualizer {
             int j = in.readInt();
             perc.open(i, j);
             draw(perc, n);
- *-Creates an n -by - n grid of sites(intially all blocked)
-                    * -Reads in a sequence of sites(row i, column j) to open.
- *
- *After each site is opened, it draws full sites in light blue,
+// *-Creates an n -by - n grid of sites(intially all blocked)
+//                    * -Reads in a sequence of sites(row i, column j) to open.
+// *
+// *After each site is opened, it draws full sites in light blue,
             StdDraw.show();
             StdDraw.pause(DELAY);
         }
