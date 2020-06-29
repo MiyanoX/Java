@@ -50,7 +50,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Solver">
+  <component name="RunManager" selected="Application.KdTree">
     <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -68,6 +68,23 @@
     <configuration name="InteractivePercolationVisualizer" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="InteractivePercolationVisualizer" />
       <module name="Algorithm" />
+      <method v="2" />
+    </configuration>
+    <configuration name="KdTree" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="KdTree" />
+      <module name="Algorithm" />
+      <method v="2" />
+    </configuration>
+    <configuration name="KdTreeVisualizer" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="KdTreeVisualizer" />
+      <module name="Algorithm" />
+      <option name="PROGRAM_PARAMETERS" value="input100K.txt" />
+      <method v="2" />
+    </configuration>
+    <configuration name="NearestNeighborVisualizer" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="NearestNeighborVisualizer" />
+      <module name="Algorithm" />
+      <option name="PROGRAM_PARAMETERS" value="input100K.txt" />
       <method v="2" />
     </configuration>
     <configuration name="Percolation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -95,9 +112,20 @@
       <option name="PROGRAM_PARAMETERS" value="input6.txt" />
       <method v="2" />
     </configuration>
+    <configuration name="PointSET" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="PointSET" />
+      <module name="Algorithm" />
+      <method v="2" />
+    </configuration>
     <configuration name="RandomizedQueue" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="RandomizedQueue" />
       <module name="Algorithm" />
+      <method v="2" />
+    </configuration>
+    <configuration name="RangeSearchVisualizer" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="RangeSearchVisualizer" />
+      <module name="Algorithm" />
+      <option name="PROGRAM_PARAMETERS" value="input100K.txt" />
       <method v="2" />
     </configuration>
     <configuration name="Solver" type="Application" factoryName="Application">
@@ -126,7 +154,12 @@
       <item itemvalue="Application.RandomizedQueue" />
       <item itemvalue="Application.Solver" />
       <item itemvalue="Application.Board" />
+      <item itemvalue="Application.PointSET" />
+      <item itemvalue="Application.KdTreeVisualizer" />
+      <item itemvalue="Application.NearestNeighborVisualizer" />
       <item itemvalue="Application.Percolation" />
+      <item itemvalue="Application.KdTree" />
+      <item itemvalue="Application.RangeSearchVisualizer" />
     </list>
     <recent_temporary>
       <list>

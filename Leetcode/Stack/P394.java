@@ -1,7 +1,5 @@
 import java.util.Stack;
 
-public class P394 {
-}
 
 class Solution {
     public String decodeString(String s) {
